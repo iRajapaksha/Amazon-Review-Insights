@@ -58,13 +58,13 @@ pip install -r requirements.txt
 ### 2. Install Hadoop
 1. Install java jdk 8
 ```bash
-    sudo apt install openjdk-8-jdk
+sudo apt install openjdk-8-jdk
 ```
 2. Add configuration on bash file
 ```bash
 nano .bashrc
 ```
-    ```bash
+```bash
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
     export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin 
     export HADOOP_HOME=~/hadoop-3.4.1/ 
@@ -78,10 +78,10 @@ nano .bashrc
     export HADOOP_STREAMING=$HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.4.1.jar
     export HADOOP_LOG_DIR=$HADOOP_HOME/logs 
     export PDSH_RCMD_TYPE=ssh
-    ```
+```
 3. Install ssh
 ```bash
-    sudo apt-get install ssh
+sudo apt-get install ssh
 ```
 4. Download hadoop tar file from official website and extract it.
 ```bash
