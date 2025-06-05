@@ -3,19 +3,19 @@
 
 This project demonstrates large-scale data analysis using **Hadoop MapReduce** (in Java) and **Python** for preprocessing and visualization. The dataset contains Amazon product reviews, and the system extracts insights like:
 
-- 📊 **Average rating per product**
-- 😄 **Sentiment polarity counts (Positive, Neutral, Negative)**
-- 📅 **Number of reviews per year**
+-  **Average rating per product**
+-  **Sentiment polarity counts (Positive, Neutral, Negative)**
+-  **Number of reviews per year**
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 Amazon-Review-Insights/
-├── AmazonReviewAnalysis/                  # Java MapReduce code
-│   ├── src/                    # Java classes (Mappers & Reducers)
-│      ├── AvgRatingMapper.java
+├── AmazonReviewAnalysis/       # Java MapReduce code
+│   ├── src/                    # Java classes (Mappers, Reducers, and Drivers)
+|      ├── AvgRatingMapper.java
 │      ├── AvgRatingReducer.java
 │      ├── AvgRatingDriver.java
 │      ├── ReviewsPerYearMapper.java
@@ -27,16 +27,15 @@ Amazon-Review-Insights/
 │      ├── ReviewYearMapper.java            
 │      ├── ReviewYearReducer.java
 │      ├── ReviewYearDriver.java
-├── preprocess/              # Python data cleaning
+├── preprocess/                 # Python data cleaning
 │   ├── preprocess.ipynb
 │   └── cleaned_reviews.tsv
 ├── visualization/              # Python visualization
-│   ├── avg_rating_chart.py
-│   ├── sentiment_pie_chart.py
-│   ├── reviews_per_year.py
-│   └── wordcloud_generator.py
+│   ├── visualization.ipynb
 ├── data/
 │   └── Reviews.csv
+├── output/
+│   └── AmazonReviewAnalysis2.0.jar
 ├── README.md
 └── requirements.txt
 ```
@@ -47,7 +46,7 @@ Amazon-Review-Insights/
 ### 1. Preprocessing (Python)
 
 ```bash
-cd preprocessing
+cd preprocess
 pip install -r requirements.txt
 ```
 
@@ -76,12 +75,18 @@ This cleans the raw dataset and outputs `cleaned_reviews.tsv`.
     export PDSH_RCMD_TYPE=ssh
     ```
 3. Install ssh
+```bash
     sudo apt-get install ssh
+```
 4. Download hadoop tar file from official website and extract it.
+```bash
+    wget https://downloads.apache.org/hadoop/common/hadoop-3.4.1/hadoop-3.4.1.tar.gz
     tar -zxvf ~/Downloads/hadoop-3.2.3.tar.gz 
+```
 5. Configure Hadoop
+```bash
     cd hadoop-3.4.1/etc/hadoop
-
+```
 core-site.xml
 ```bash
 <configuration> 
@@ -190,14 +195,14 @@ hdfs dfs -cat /review_analysis/output_reviews_per_year/part-r-00000
 6. Download output from HDFS:
 
 ```bash
-hdfs dfs -get /review_analysis/output_avg_rating ./avg_rating
-hdfs dfs -get /review_analysis/output_review_sentiment ./review_sentiment
-hdfs dfs -get /review_analysis/output_reviews_year ./reviews_year
-hdfs dfs -get /review_analysis/output_reviews_per_year ./reviews_per_year
+hdfs dfs -get /review_analysis/output_avg_rating ./output/avg_rating
+hdfs dfs -get /review_analysis/output_review_sentiment ./output/review_sentiment
+hdfs dfs -get /review_analysis/output_reviews_year ./output/reviews_year
+hdfs dfs -get /review_analysis/output_reviews_per_year ./output/reviews_per_year
 
 ```
 
-### 3. 📈 Visualization (Python)
+### 3. Visualization (Python)
 
 Install required libraries:
 
