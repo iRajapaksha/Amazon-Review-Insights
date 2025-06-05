@@ -14,7 +14,7 @@ This project demonstrates large-scale data analysis using **Hadoop MapReduce** (
 ```
 Amazon-Review-Insights/
 ├── AmazonReviewAnalysis/       # Java MapReduce code
-│   ├── src/                    # Java classes (Mappers, Reducers, and Drivers)
+│   └── src/                    # Java classes (Mappers, Reducers, and Drivers)
 |      ├── AvgRatingMapper.java
 │      ├── AvgRatingReducer.java
 │      ├── AvgRatingDriver.java
@@ -31,7 +31,7 @@ Amazon-Review-Insights/
 │   ├── preprocess.ipynb
 │   └── cleaned_reviews.tsv
 ├── visualization/              # Python visualization
-│   ├── visualization.ipynb
+│   └── visualization.ipynb
 ├── data/
 │   └── Reviews.csv
 ├── output/
@@ -61,7 +61,9 @@ pip install -r requirements.txt
     sudo apt install openjdk-8-jdk
 ```
 2. Add configuration on bash file
-    nano .bashrc
+```bash
+nano .bashrc
+```
     ```bash
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
     export PATH=$PATH:/usr/lib/jvm/java-8-openjdk-amd64/bin 
@@ -159,15 +161,15 @@ hdfs namenode -format
 start-dfs.sh
 start-yarn.sh
 ```
-to stop
+- to stop
 ```bash
 stop-dfs.sh
 stop-yarn.sh
 ```
 
 8. Check web interface
-Namenode - http://localhost:9870 \n
-ResourceManager - http://localhost:8088
+- Namenode - http://localhost:9870 
+- ResourceManager - http://localhost:8088
 
 
 ### 3. Hadoop MapReduce (Java in Eclipse)
@@ -217,11 +219,8 @@ Generate plots:
 
 ```bash
 cd visualization
-python avg_rating_chart.py
-python sentiment_pie_chart.py
-python reviews_per_year.py
-python wordcloud_generator.py
 ```
+- Run visualization.ipynb
 
 ---
 
