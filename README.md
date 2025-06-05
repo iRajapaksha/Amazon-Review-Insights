@@ -92,6 +92,12 @@ tar -zxvf ~/Downloads/hadoop-3.2.3.tar.gz
 ```bash
 cd hadoop-3.4.1/etc/hadoop
 ```
+hadoop-env.h
+```bash
+sudo nano hadoop-env.h
+JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 
+```
+
 core-site.xml
 ```bash
 <configuration> 
@@ -165,6 +171,11 @@ start-yarn.sh
 ```bash
 stop-dfs.sh
 stop-yarn.sh
+```
+
+8. Verify - List all java processes running on the device
+```bash
+jps
 ```
 
 8. Check web interface
