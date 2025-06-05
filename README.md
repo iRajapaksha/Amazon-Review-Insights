@@ -44,19 +44,22 @@ Amazon-Review-Insights/
 ## How to Run the Project
 
 ### 1. Preprocessing (Python)
+- Download the dataset from [Kaggle](https://www.kaggle.com/datasets/arhamrumi/amazon-product-reviews) and extract to `data/`
 
 ```bash
 cd preprocess
 pip install -r requirements.txt
 ```
-
-This cleans the raw dataset and outputs `cleaned_reviews.tsv`.
+- Run preprocess.ipynb.
+- This cleans the raw dataset and outputs `cleaned_reviews.tsv`.
 
 ---
 
 ### 2. Install Hadoop
 1. Install java jdk 8
+```bash
     sudo apt install openjdk-8-jdk
+```
 2. Add configuration on bash file
     nano .bashrc
     ```bash
@@ -154,7 +157,7 @@ hdfs namenode -format
 7. Start hadoop service
 ```bash
 start-dfs.sh
-start-yar.sh
+start-yarn.sh
 ```
 to stop
 ```bash
@@ -163,7 +166,7 @@ stop-yarn.sh
 ```
 
 8. Check web interface
-Namenode - http://localhost:9870
+Namenode - http://localhost:9870 \n
 ResourceManager - http://localhost:8088
 
 
@@ -224,14 +227,13 @@ python wordcloud_generator.py
 
 ## Requirements
 
-- Java 8+
+- Java 8
 - Hadoop (configured on a Linux VM or cluster)
 - Python 3.8+
 - Python Libraries:
   - pandas
   - matplotlib
   - seaborn
-  - wordcloud
 
 ## Dataset
 
