@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
 ---
 
-### 2. Install Hadoop
+### 2. Install Hadoop on Linux environment
 1. Install java jdk 8
 ```bash
 sudo apt install openjdk-8-jdk
@@ -178,7 +178,7 @@ stop-yarn.sh
 jps
 ```
 
-8. Check web interface
+9. Check web interface
 - Namenode - http://localhost:9870 
 - ResourceManager - http://localhost:8088
 
